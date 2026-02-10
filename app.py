@@ -5,7 +5,7 @@ from torchvision import transforms
 from src.models.efficientnet import get_model
 
 st.set_page_config(page_title="VigilantEye", layout="centered")
-st.title("🛡️ VigilantEye – Deepfake Detector")
+st.title("VigilantEye – Deepfake Detector")
 
 device = torch.device("cpu")
 
@@ -38,3 +38,4 @@ if uploaded_file:
 
     st.subheader(f"Prediction: **{label}**")
     st.write(f"Confidence: **{prob:.2f}**")
+
