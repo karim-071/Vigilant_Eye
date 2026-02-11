@@ -1,7 +1,8 @@
 streamlit
+mtcnn
 opencv-python-headless
 numpy
 torch
 torchvision
 pillow
-
+tensorflow
