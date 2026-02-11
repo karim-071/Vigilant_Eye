@@ -4,5 +4,3 @@ numpy
 torch
 torchvision
 pillow
-tensorflow
-mediapipe==0.10.14
