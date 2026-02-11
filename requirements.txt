@@ -5,4 +5,4 @@ torch
 torchvision
 pillow
 tensorflow
-mediapipe
+mediapipe==0.10.14
