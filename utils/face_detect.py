@@ -1,19 +1,27 @@
 import cv2
-from mtcnn import MTCNN
+import mediapipe as mp
 
-detector = MTCNN()
+mp_face = mp.solutions.face_detection
+detector = mp_face.FaceDetection(model_selection=1, min_detection_confidence=0.5)
 
 def detect_face(image):
     rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-    faces = detector.detect_faces(rgb)
+    results = detector.process(rgb)
 
-    if len(faces) == 0:
+    if not results.detections:
         return None
 
-    x, y, w, h = faces[0]['box']
+    bbox = results.detections[0].location_data.relative_bounding_box
 
-    # Ensure coordinates are positive
+    h, w, _ = image.shape
+
+    x = int(bbox.xmin * w)
+    y = int(bbox.ymin * h)
+    bw = int(bbox.width * w)
+    bh = int(bbox.height * h)
+
     x, y = max(0, x), max(0, y)
 
-    face = image[y:y+h, x:x+w]
+    face = image[y:y+bh, x:x+bw]
+
     return face
