@@ -30,7 +30,7 @@ The system supports both **image and video deepfake detection**, providing real-
 ---
 ## 🚀 Demo
 
-👉 **Live App:** *(Add your Streamlit link here)* 
+👉 **Live App:** *(https://vigilant-eye.streamlit.app/)* 
 
 ---
 
