@@ -54,7 +54,7 @@ if mode == "Image Detection":
 
         # Show image
         image = Image.open(uploaded).convert("RGB")
-        st.image(image, caption="Uploaded Image", use_column_width=True)
+        st.image(image, caption="Uploaded Image", width="stretch")
 
         # Save temporarily
         with tempfile.NamedTemporaryFile(delete=False, suffix=".jpg") as tmp:
@@ -123,5 +123,6 @@ else:
                 st.error(f"FAKE VIDEO ({confidence*100:.2f}% confidence)")
             else:
                 st.success(f"REAL VIDEO ({confidence*100:.2f}% confidence)")
+
 
             st.progress(float(confidence))
